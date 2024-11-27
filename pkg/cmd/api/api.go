@@ -5,14 +5,16 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/Xanssun/technical-specification.git/pkg/cmd/jwt"
 	"github.com/Xanssun/technical-specification.git/pkg/internal/store"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
 
 type application struct {
-	config config
-	store  store.Storage
+	config     config
+	store      store.Storage
+	jwtManager jwt.JWT
 }
 
 type config struct {
@@ -25,6 +27,10 @@ type dbConfig struct {
 	maxOpenConns int
 	maxIdleConns int
 	maxIdleTime  string
+}
+
+func (app *application) healthCheckHandler(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("ok"))
 }
 
 func (app *application) mount() http.Handler {
