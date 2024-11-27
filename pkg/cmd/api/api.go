@@ -5,16 +5,14 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/Xanssun/technical-specification.git/pkg/cmd/jwt"
 	"github.com/Xanssun/technical-specification.git/pkg/internal/store"
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 )
 
 type application struct {
-	config     config
-	store      store.Storage
-	jwtManager jwt.JWT
+	config config
+	store  store.Storage
 }
 
 type config struct {

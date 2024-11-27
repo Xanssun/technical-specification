@@ -3,7 +3,6 @@ MIGRATIONS_PATH = ./pkg/cmd/migrate/migrations
 DC = docker compose
 STORAGES_FILE = docker_compose/storages.yaml
 ENV = --env-file .env
-name=users
 
 .PHONY: migrate-create
 migrate-create:

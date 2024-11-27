@@ -2,9 +2,7 @@ package main
 
 import (
 	"log"
-	"time"
 
-	"github.com/Xanssun/technical-specification.git/pkg/cmd/jwt"
 	"github.com/Xanssun/technical-specification.git/pkg/internal/db"
 	"github.com/Xanssun/technical-specification.git/pkg/internal/env"
 	"github.com/Xanssun/technical-specification.git/pkg/internal/store"
@@ -48,11 +46,6 @@ func main() {
 	app := &application{
 		config: cfg,
 		store:  store,
-		jwtManager: jwt.NewJWTManager(
-			env.GetString("SECRET_KEY", "privet"),
-			15*time.Minute,
-			7*24*time.Hour,
-		),
 	}
 
 	mux := app.mount()
