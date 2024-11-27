@@ -1,2 +1,1 @@
 # technical-specification
-техническое задание
